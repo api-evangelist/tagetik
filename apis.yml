@@ -7,11 +7,11 @@ created: '2025-01-15'
 modified: '2026-03-16'
 specificationVersion: '0.16'
 tags:
-  - Financial Planning
+  - Analytics
   - Corporate Performance Management
   - Financial Consolidation
+  - Financial Planning
   - Reporting
-  - Analytics
 apis:
   - name: Tagetik REST API
     description: >-
@@ -21,10 +21,10 @@ apis:
     humanURL: https://www.tagetik.com/solutions/api
     baseURL: https://api.tagetik.com/v1
     tags:
-      - REST
+      - Consolidation
       - Financial Data
       - Integration
-      - Consolidation
+      - REST
     properties:
       - type: Documentation
         url: https://docs.tagetik.com/api/rest
@@ -43,8 +43,8 @@ apis:
     tags:
       - Data Integration
       - ETL
-      - Import
       - Export
+      - Import
     properties:
       - type: Documentation
         url: https://docs.tagetik.com/api/data-integration
@@ -57,10 +57,10 @@ apis:
     humanURL: https://www.tagetik.com/solutions/workflow
     baseURL: https://api.tagetik.com/v1/workflow
     tags:
-      - Workflow
+      - Approvals
       - Automation
       - Financial Close
-      - Approvals
+      - Workflow
     properties:
       - type: Documentation
         url: https://docs.tagetik.com/api/workflow
@@ -72,10 +72,10 @@ apis:
     humanURL: https://www.tagetik.com/solutions/reporting
     baseURL: https://api.tagetik.com/v1/reporting
     tags:
-      - Reporting
       - Analytics
       - Dashboards
       - Financial Reports
+      - Reporting
     properties:
       - type: Documentation
         url: https://docs.tagetik.com/api/reporting
