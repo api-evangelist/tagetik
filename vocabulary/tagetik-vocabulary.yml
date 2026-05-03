@@ -1,0 +1,177 @@
+name: CCH Tagetik Vocabulary
+description: >-
+  Domain vocabulary for CCH Tagetik Corporate Performance Management platform
+  covering financial consolidation, planning, close, ESG reporting, and OData
+  integration terminology.
+created: '2026-05-03'
+modified: '2026-05-03'
+tags:
+  - Corporate Performance Management
+  - Financial Close
+  - Financial Consolidation
+  - OData
+  - Reporting
+terms:
+  - term: Corporate Performance Management
+    abbreviation: CPM
+    definition: >-
+      Software and processes that help organizations monitor, manage, and analyze
+      their financial performance including budgeting, forecasting, consolidation,
+      and reporting.
+    synonyms:
+      - Enterprise Performance Management
+      - EPM
+    relatedTerms:
+      - Financial Consolidation
+      - Extended Planning and Analysis
+
+  - term: Financial Consolidation
+    definition: >-
+      The process of combining the financial statements of a parent company
+      and its subsidiaries into a single consolidated financial statement,
+      including intercompany eliminations and currency translation.
+    relatedTerms:
+      - Intercompany
+      - Currency Translation
+      - Consolidation Status
+
+  - term: OData
+    definition: >-
+      Open Data Protocol — an OASIS standard that defines best practices for
+      building and consuming RESTful APIs. CCH Tagetik exposes financial data
+      via OData v4 for BI integration.
+    synonyms:
+      - Open Data Protocol
+    relatedTerms:
+      - Entity Set
+      - Filter Expression
+
+  - term: Entity Set
+    definition: >-
+      An OData collection of records of the same type. In CCH Tagetik, entity
+      sets correspond to financial models, analytical workspaces, or data
+      categories such as FinancialData or BudgetData.
+    relatedTerms:
+      - OData
+      - Financial Model
+
+  - term: Scenario
+    definition: >-
+      A labeled version of financial data representing a specific business
+      context such as Actual (reported results), Budget (approved plan),
+      Forecast (current expectation), or Reforecast.
+    values:
+      - Actual
+      - Budget
+      - Forecast
+      - Reforecast
+    relatedTerms:
+      - Financial Record
+      - Analytical Workspace
+
+  - term: Period
+    definition: >-
+      The reporting time interval for financial data. CCH Tagetik uses codes
+      such as M01-M12 for monthly, Q1-Q4 for quarterly, H1-H2 for half-yearly,
+      YTD for year-to-date, and FY for full year.
+    relatedTerms:
+      - Year
+      - Financial Record
+
+  - term: Database
+    definition: >-
+      A CCH Tagetik environment database identified by a code (e.g., CONS_DB),
+      containing the financial models, configurations, and data for a given
+      consolidation or planning scope.
+    relatedTerms:
+      - Analytical Workspace
+      - Financial Model
+
+  - term: Analytical Workspace
+    definition: >-
+      A customizable multi-dimensional data model in CCH Tagetik used for
+      planning, budgeting, and forecasting. Contains custom dimensions and
+      supports OData v4 access.
+    relatedTerms:
+      - Database
+      - Scenario
+
+  - term: Financial Model
+    definition: >-
+      A structured consolidation model in CCH Tagetik's Financial Workspace
+      ETL layer, containing accounts, entities, periods, and their interrelationships.
+    relatedTerms:
+      - Database
+      - Chart of Accounts
+
+  - term: Intercompany
+    definition: >-
+      Transactions or balances between legal entities within the same corporate
+      group that must be identified and eliminated during consolidation to
+      prevent double-counting.
+    synonyms:
+      - Interco
+      - Elimination
+    relatedTerms:
+      - Financial Consolidation
+      - Entity
+
+  - term: Entity
+    definition: >-
+      A legal entity, subsidiary, cost center, or business unit within the
+      corporate group identified by a code and tracked in the consolidation
+      or planning model.
+    relatedTerms:
+      - Financial Consolidation
+      - Intercompany
+
+  - term: Chart of Accounts
+    definition: >-
+      The structured listing of account codes and descriptions used across
+      the consolidation model, including P&L accounts, balance sheet accounts,
+      and statistical accounts.
+    relatedTerms:
+      - Account
+      - Financial Model
+
+  - term: OAuth 2.0
+    definition: >-
+      Authentication protocol supported by CCH Tagetik for secure API access
+      using the Client Credentials flow, enabling system-to-system integration
+      without user interaction.
+    synonyms:
+      - OAuth2
+    relatedTerms:
+      - Basic Authentication
+      - Access Token
+
+  - term: SCIM
+    abbreviation: System for Cross-domain Identity Management
+    definition: >-
+      Standard protocol used by CCH Tagetik for automated user and group
+      provisioning from identity providers such as Microsoft Entra ID.
+    relatedTerms:
+      - OAuth 2.0
+      - User Provisioning
+
+  - term: Extended Planning and Analysis
+    abbreviation: xP&A
+    definition: >-
+      A planning approach supported by CCH Tagetik that integrates financial
+      and operational planning across Finance, HR, Supply Chain, and Sales
+      into a connected business plan.
+    synonyms:
+      - Integrated Business Planning
+      - IBP
+    relatedTerms:
+      - Corporate Performance Management
+      - Analytical Workspace
+
+  - term: ESG Reporting
+    definition: >-
+      Environmental, Social, and Governance reporting capabilities in CCH
+      Tagetik supporting sustainability performance management and regulatory
+      compliance frameworks.
+    relatedTerms:
+      - Corporate Performance Management
+      - Regulatory Reporting

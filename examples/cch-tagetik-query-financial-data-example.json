@@ -1,0 +1,65 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://your-instance.tagetik.com/odata/CONS_DB/FinancialData?$filter=Year eq 2025 and Scenario eq 'Actual'&$select=Year,Period,Account,AccountDescription,Entity,Currency,Amount&$top=100&$orderby=Account asc",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "Accept": "application/json",
+      "OData-MaxVersion": "4.0",
+      "OData-Version": "4.0"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json;odata.metadata=minimal",
+      "OData-Version": "4.0"
+    },
+    "body": {
+      "@odata.context": "https://your-instance.tagetik.com/odata/CONS_DB/$metadata#FinancialData",
+      "@odata.count": 2847,
+      "value": [
+        {
+          "Year": 2025,
+          "Period": "M03",
+          "Account": "1000",
+          "AccountDescription": "Revenue from Contracts with Customers",
+          "Entity": "US001",
+          "EntityDescription": "US Operations LLC",
+          "Currency": "USD",
+          "Amount": 4250000.00,
+          "AmountLC": 4250000.00,
+          "Scenario": "Actual",
+          "DataType": "LC",
+          "Flow": "F10",
+          "Interco": null,
+          "Dimension1": "NORTH",
+          "Dimension2": "PROD_A",
+          "Dimension3": null,
+          "ConsolidationStatus": "VALIDATED",
+          "AuditTrail": "ERP_SAP_IMPORT"
+        },
+        {
+          "Year": 2025,
+          "Period": "M03",
+          "Account": "2000",
+          "AccountDescription": "Cost of Goods Sold",
+          "Entity": "US001",
+          "EntityDescription": "US Operations LLC",
+          "Currency": "USD",
+          "Amount": -2100000.00,
+          "AmountLC": -2100000.00,
+          "Scenario": "Actual",
+          "DataType": "LC",
+          "Flow": "F10",
+          "Interco": null,
+          "Dimension1": "NORTH",
+          "Dimension2": "PROD_A",
+          "Dimension3": null,
+          "ConsolidationStatus": "VALIDATED",
+          "AuditTrail": "ERP_SAP_IMPORT"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "FinancialRecord",
+  "description": "A financial data record from the CCH Tagetik OData API",
+  "fields": [
+    { "name": "Year", "type": "Integer", "required": true, "description": "Fiscal year" },
+    { "name": "Period", "type": "String", "description": "Reporting period (M01, Q1, H1, YTD, FY)" },
+    { "name": "Account", "type": "String", "required": true, "description": "Chart of accounts code" },
+    { "name": "AccountDescription", "type": "String", "description": "Account display name" },
+    { "name": "Entity", "type": "String", "required": true, "description": "Legal entity / cost center code" },
+    { "name": "EntityDescription", "type": "String", "description": "Entity display name" },
+    { "name": "Currency", "type": "String (ISO 4217)", "description": "Reporting currency code" },
+    { "name": "Amount", "type": "Number", "required": true, "description": "Amount in group/reporting currency" },
+    { "name": "AmountLC", "type": "Number", "description": "Amount in local entity currency" },
+    { "name": "Scenario", "type": "Enum (Actual|Budget|Forecast|Reforecast)", "description": "Data scenario" },
+    { "name": "DataType", "type": "String", "description": "Data type classification" },
+    { "name": "Flow", "type": "String", "description": "Cash flow movement type" },
+    { "name": "Interco", "type": "String", "description": "Intercompany partner entity code" },
+    { "name": "Dimension1", "type": "String", "description": "Custom dimension (product, region, project)" },
+    { "name": "Dimension2", "type": "String", "description": "Custom dimension 2" },
+    { "name": "Dimension3", "type": "String", "description": "Custom dimension 3" },
+    { "name": "ConsolidationStatus", "type": "String", "description": "Consolidation workflow status" },
+    { "name": "AuditTrail", "type": "String", "description": "Source system identifier" }
+  ],
+  "odata": {
+    "version": "4.0",
+    "entitySetPattern": "/odata/{database}/{entity}",
+    "supportedQueryOptions": ["$filter", "$select", "$top", "$skip", "$orderby", "$count", "$format"]
+  }
+}

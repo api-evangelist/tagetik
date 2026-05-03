@@ -1,0 +1,65 @@
+extends: spectral:oas
+rules:
+  tagetik-odata-servers-defined:
+    description: CCH Tagetik OData API must define servers with environment variables
+    message: "API must define at least one server URL"
+    severity: error
+    given: "$.servers"
+    then:
+      function: length
+      functionOptions:
+        min: 1
+
+  tagetik-odata-operations-have-descriptions:
+    description: All OData operations should have descriptions
+    message: "Operation '{{property}}' is missing a description"
+    severity: warn
+    given: "$.paths[*][get,post,put,patch,delete]"
+    then:
+      field: description
+      function: truthy
+
+  tagetik-odata-query-params-documented:
+    description: OData query parameters ($filter, $select, etc.) should be documented
+    message: "OData operations should document standard query parameters"
+    severity: info
+    given: "$.paths[*].get.parameters"
+    then:
+      function: truthy
+
+  tagetik-auth-both-methods-documented:
+    description: Both Basic and OAuth2 authentication must be documented
+    message: "API must document both BasicAuth and OAuth2 security schemes"
+    severity: warn
+    given: "$.components.securitySchemes"
+    then:
+      function: truthy
+
+  tagetik-odata-response-uses-value-array:
+    description: OData collection responses must include a value array
+    message: "OData response schema should include a 'value' property containing an array"
+    severity: warn
+    given: "$.components.schemas.ODataResponse.properties"
+    then:
+      field: value
+      function: truthy
+
+  tagetik-schemas-have-descriptions:
+    description: All schema components should have descriptions
+    message: "Schema '{{property}}' is missing a description"
+    severity: warn
+    given: "$.components.schemas[*]"
+    then:
+      field: description
+      function: truthy
+
+  tagetik-amount-fields-are-numbers:
+    description: Financial amount fields must be numeric type
+    message: "Amount field should be type: number"
+    severity: error
+    given: "$.components.schemas[*].properties[Amount,AmountLC]"
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "^number$"

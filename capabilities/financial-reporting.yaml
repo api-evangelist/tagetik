@@ -1,0 +1,133 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "CCH Tagetik Financial Reporting"
+  description: >-
+    Workflow capability for finance teams and BI analysts to query CCH Tagetik
+    financial consolidation and analytical workspace data. Covers actual results,
+    budget comparisons, forecasts, and multi-dimensional financial analysis
+    for close, consolidation, and reporting workflows.
+  tags:
+    - Budgeting
+    - Corporate Performance Management
+    - Financial Close
+    - Financial Consolidation
+    - Financial Reporting
+    - Forecasting
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TAGETIK_ACCESS_TOKEN: TAGETIK_ACCESS_TOKEN
+      TAGETIK_BASE_URL: TAGETIK_BASE_URL
+
+capability:
+  consumes:
+    - import: tagetik-odata
+      location: ./shared/cch-tagetik-odata.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: tagetik-reporting-api
+      description: "Unified REST API for CCH Tagetik financial reporting workflows."
+      resources:
+        - path: /v1/financial-data
+          name: financial-data
+          description: "Query financial consolidation data across entities, periods, and scenarios"
+          operations:
+            - method: GET
+              name: query-financial-data
+              description: "Retrieve financial records filtered by year, period, scenario, and entity"
+              call: "tagetik-odata.query-financial-data"
+              with:
+                database: "rest.database"
+                $filter: "rest.filter"
+                $select: "rest.select"
+                $top: "rest.top"
+                $skip: "rest.skip"
+                $orderby: "rest.orderby"
+                $count: "rest.count"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/analytical-data
+          name: analytical-data
+          description: "Query analytical workspace data for planning and analysis"
+          operations:
+            - method: GET
+              name: query-analytical-data
+              description: "Retrieve analytical workspace records"
+              call: "tagetik-odata.query-analytical-data"
+              with:
+                database: "rest.database"
+                workspace: "rest.workspace"
+                $filter: "rest.filter"
+                $top: "rest.top"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/metadata
+          name: odata-metadata
+          description: "OData service metadata for entity discovery"
+          operations:
+            - method: GET
+              name: get-odata-metadata
+              description: "Retrieve available entity sets and their properties"
+              call: "tagetik-odata.get-odata-metadata"
+              with:
+                database: "rest.database"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: tagetik-reporting-mcp
+      transport: http
+      description: "MCP server for AI-assisted financial reporting and close analysis."
+      tools:
+        - name: query-financial-data
+          description: "Query CCH Tagetik financial consolidation data with filters for year, period, scenario (Actual/Budget/Forecast), entity, and account"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tagetik-odata.query-financial-data"
+          with:
+            database: "tools.database"
+            $filter: "tools.filter"
+            $select: "tools.select"
+            $top: "tools.top"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: query-analytical-data
+          description: "Query CCH Tagetik analytical workspace data for budget, forecast, and planning scenarios"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tagetik-odata.query-analytical-data"
+          with:
+            database: "tools.database"
+            workspace: "tools.workspace"
+            $filter: "tools.filter"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-odata-metadata
+          description: "Discover available CCH Tagetik entity sets, dimensions, and data models in a given database"
+          hints:
+            readOnly: true
+            openWorld: false
+          call: "tagetik-odata.get-odata-metadata"
+          with:
+            database: "tools.database"
+          outputParameters:
+            - type: object
+              mapping: "$."

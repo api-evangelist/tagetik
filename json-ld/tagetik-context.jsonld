@@ -1,0 +1,34 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "tagetik": "https://tagetik.com/vocab/",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "FinancialRecord": "tagetik:FinancialRecord",
+    "FinancialModel": "tagetik:FinancialModel",
+    "AnalyticalWorkspace": "tagetik:AnalyticalWorkspace",
+
+    "Year": { "@id": "tagetik:fiscalYear", "@type": "xsd:integer" },
+    "Period": { "@id": "tagetik:reportingPeriod", "@type": "xsd:string" },
+    "Account": { "@id": "tagetik:accountCode", "@type": "xsd:string" },
+    "AccountDescription": { "@id": "schema:name" },
+    "Entity": { "@id": "tagetik:entityCode", "@type": "xsd:string" },
+    "EntityDescription": { "@id": "schema:legalName" },
+    "Currency": { "@id": "schema:currency", "@type": "xsd:string" },
+    "Amount": { "@id": "tagetik:amount", "@type": "xsd:decimal" },
+    "AmountLC": { "@id": "tagetik:amountLocalCurrency", "@type": "xsd:decimal" },
+    "Scenario": { "@id": "tagetik:scenario", "@type": "xsd:string" },
+    "DataType": { "@id": "tagetik:dataType", "@type": "xsd:string" },
+    "Flow": { "@id": "tagetik:cashFlowType", "@type": "xsd:string" },
+    "Interco": { "@id": "tagetik:intercompanyPartner", "@type": "xsd:string" },
+    "Dimension1": { "@id": "tagetik:dimension1", "@type": "xsd:string" },
+    "Dimension2": { "@id": "tagetik:dimension2", "@type": "xsd:string" },
+    "Dimension3": { "@id": "tagetik:dimension3", "@type": "xsd:string" },
+    "ConsolidationStatus": { "@id": "tagetik:consolidationStatus", "@type": "xsd:string" },
+    "AuditTrail": { "@id": "tagetik:auditTrail", "@type": "xsd:string" },
+    "database": { "@id": "tagetik:database", "@type": "xsd:string" },
+    "analyticalWorkspace": { "@id": "tagetik:analyticalWorkspace", "@type": "xsd:string" }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tagetik.com/schemas/financial-record",
+  "title": "Financial Record",
+  "description": "A financial data record returned by the CCH Tagetik OData API",
+  "type": "object",
+  "properties": {
+    "Year": {
+      "type": "integer",
+      "description": "Fiscal year (e.g., 2025)"
+    },
+    "Period": {
+      "type": "string",
+      "description": "Reporting period code (e.g., M01, Q1, H1, YTD, FY)"
+    },
+    "Account": {
+      "type": "string",
+      "description": "Account code from the chart of accounts"
+    },
+    "AccountDescription": {
+      "type": "string",
+      "description": "Human-readable account name or description"
+    },
+    "Entity": {
+      "type": "string",
+      "description": "Legal entity, business unit, or cost center code"
+    },
+    "EntityDescription": {
+      "type": "string",
+      "description": "Human-readable entity name or description"
+    },
+    "Currency": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3,
+      "description": "ISO 4217 currency code (e.g., USD, EUR, GBP)"
+    },
+    "Amount": {
+      "type": "number",
+      "description": "Financial amount in the group/reporting currency"
+    },
+    "AmountLC": {
+      "type": "number",
+      "description": "Financial amount in local entity currency"
+    },
+    "Scenario": {
+      "type": "string",
+      "enum": ["Actual", "Budget", "Forecast", "Reforecast"],
+      "description": "Data scenario classification"
+    },
+    "DataType": {
+      "type": "string",
+      "description": "Data type or classification within the model"
+    },
+    "Flow": {
+      "type": "string",
+      "description": "Cash flow or movement type"
+    },
+    "Interco": {
+      "type": "string",
+      "description": "Intercompany entity code for elimination purposes"
+    },
+    "Dimension1": {
+      "type": "string",
+      "description": "Custom dimension 1 (e.g., product, region, project)"
+    },
+    "Dimension2": {
+      "type": "string",
+      "description": "Custom dimension 2"
+    },
+    "Dimension3": {
+      "type": "string",
+      "description": "Custom dimension 3"
+    },
+    "ConsolidationStatus": {
+      "type": "string",
+      "description": "Consolidation workflow status"
+    },
+    "AuditTrail": {
+      "type": "string",
+      "description": "Audit trail or source system identifier"
+    }
+  },
+  "required": ["Year", "Account", "Entity", "Amount"]
+}

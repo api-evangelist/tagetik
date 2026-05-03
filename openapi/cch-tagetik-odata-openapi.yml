@@ -1,0 +1,219 @@
+openapi: 3.0.3
+info:
+  title: CCH Tagetik OData API
+  description: >-
+    OData v4 REST API providing read access to CCH Tagetik financial and
+    analytical workspace data. Enables external tools such as Power BI, Qlik,
+    and custom integrations to query financial models, consolidation data,
+    and analytical workspace datasets. Supports Basic Authentication and
+    OAuth 2.0 Client Credentials flow. The base URL is your CCH Tagetik
+    environment-specific endpoint configured by your administrator.
+  version: 4.0.0
+  contact:
+    name: Wolters Kluwer CCH Tagetik Support
+    url: https://www.wolterskluwer.com/en/solutions/cch-tagetik/services/support
+  termsOfService: https://www.wolterskluwer.com/en/legal
+externalDocs:
+  description: CCH Tagetik Technology and Integrations
+  url: https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations
+servers:
+  - url: https://{environment}/
+    description: CCH Tagetik environment-specific OData endpoint
+    variables:
+      environment:
+        description: Your CCH Tagetik environment hostname
+        default: your-instance.tagetik.com
+security:
+  - BasicAuth: []
+  - OAuth2ClientCredentials: []
+paths:
+  /$metadata:
+    get:
+      operationId: getODataMetadata
+      summary: Get OData Metadata
+      description: >-
+        Returns the OData service metadata document describing all available
+        entity sets, entity types, and their properties.
+      tags:
+        - Metadata
+      parameters:
+        - name: database
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The CCH Tagetik database code
+        - name: analyticalWorkspace
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Optional analytical workspace code
+      responses:
+        '200':
+          description: OData metadata XML document
+          content:
+            application/xml:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized - invalid credentials
+        '403':
+          description: Forbidden - insufficient permissions
+  /odata/{database}/{entity}:
+    get:
+      operationId: queryFinancialData
+      summary: Query Financial Data
+      description: >-
+        Query financial or analytical data from a CCH Tagetik entity set using
+        OData v4 query options including $filter, $select, $top, $skip,
+        $orderby, and $expand.
+      tags:
+        - Financial Data
+      parameters:
+        - name: database
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The CCH Tagetik database code
+        - name: entity
+          in: path
+          required: true
+          schema:
+            type: string
+          description: >-
+            The entity set name (e.g., FinancialData, ConsolidationData,
+            AnalyticalData)
+        - name: $filter
+          in: query
+          required: false
+          schema:
+            type: string
+          description: OData filter expression (e.g., Year eq 2025 and Period eq 'Q1')
+        - name: $select
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Comma-separated list of properties to include
+        - name: $top
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10000
+          description: Maximum number of rows to return
+        - name: $skip
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+          description: Number of rows to skip (for pagination)
+        - name: $orderby
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Property name and direction for sorting (e.g., Year desc)
+        - name: $count
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Include total count of matching records
+        - name: $format
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+          description: Response format (default json)
+      responses:
+        '200':
+          description: OData response with financial data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ODataResponse'
+        '400':
+          description: Bad Request - invalid OData query syntax
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Entity set not found
+components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication with CCH Tagetik username and password
+    OAuth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://{environment}/oauth2/token
+          scopes:
+            read: Read access to financial and analytical data
+  schemas:
+    ODataResponse:
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+          format: uri
+          description: OData context URL
+        '@odata.count':
+          type: integer
+          description: Total count of matching records (when $count=true)
+        value:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+          description: Array of entity records
+    FinancialRecord:
+      type: object
+      description: A financial data record from a CCH Tagetik entity set
+      properties:
+        Year:
+          type: integer
+          description: Fiscal year
+        Period:
+          type: string
+          description: Reporting period (e.g., M01, Q1, YTD)
+        Account:
+          type: string
+          description: Account code
+        AccountDescription:
+          type: string
+          description: Account description
+        Entity:
+          type: string
+          description: Legal entity or cost center code
+        EntityDescription:
+          type: string
+          description: Entity description
+        Currency:
+          type: string
+          description: Currency code (ISO 4217)
+        Amount:
+          type: number
+          format: double
+          description: Financial amount in the reporting currency
+        AmountLC:
+          type: number
+          format: double
+          description: Financial amount in local currency
+        Scenario:
+          type: string
+          description: Budget scenario (Actual, Budget, Forecast)
+        DataType:
+          type: string
+          description: Data type classification

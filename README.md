@@ -1,93 +1,92 @@
-# Tagetik APIs (tagetik)
-Collection of APIs for Tagetik's Corporate Performance Management platform
+# CCH Tagetik
 
-**URL:** [Visit APIs.json URL](https://www.tagetik.com)
+CCH Tagetik (a Wolters Kluwer solution) is a comprehensive Corporate Performance Management platform covering financial close and consolidation, extended planning and analysis, ESG and regulatory reporting, and corporate tax management. The platform exposes data via OData v4 REST APIs and SCIM, enabling integration with Power BI, Qlik, SAP HANA, and other BI tools.
 
-## Tags:
-
- - Financial Planning, Corporate Performance Management, Financial Consolidation, Reporting, Analytics
-
-## Timestamps
-
-- **Created:** 2025-01-15 
-- **Modified:** 2025-01-15 
+**APIs.json URL:** https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/apis.yml
 
 ## APIs
 
-### Tagetik REST API
-RESTful API for accessing Tagetik's CPM platform, enabling data integration, workflow automation, and reporting capabilities
+### CCH Tagetik OData API
 
-**Human URL:** [https://www.tagetik.com/solutions/api](https://www.tagetik.com/solutions/api)
+OData v4 REST API providing read access to CCH Tagetik financial and analytical workspace data. Enables external tools such as Power BI, Qlik, and custom integrations to query financial models, consolidation data, and analytical workspace datasets.
 
+- **Documentation:** https://help.tagetik.com
+- **Power BI Connector:** https://learn.microsoft.com/en-us/power-query/connectors/wolters-kluwer-cch-tagetik
+- **OpenAPI Spec:** [openapi/cch-tagetik-odata-openapi.yml](openapi/cch-tagetik-odata-openapi.yml)
 
-#### Tags:
+### CCH Tagetik SCIM API
 
- - REST, Financial Data, Integration, Consolidation
+SCIM v2 API for automated user provisioning and deprovisioning, supporting Microsoft Entra ID (Azure AD) integration.
 
-#### Properties
+- **Documentation:** https://docs.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial
 
-- [Documentation](https://docs.tagetik.com/api/rest)
-- [OpenAPI](https://api.tagetik.com/v1/openapi.json)
-- [Authentication](https://docs.tagetik.com/api/authentication)
-- [Rate Limits](https://docs.tagetik.com/api/rate-limits)
+## Artifacts
 
-### Tagetik Data Integration API
-API for importing and exporting financial data, master data, and metadata from various source systems
+### OpenAPI Specifications
 
-**Human URL:** [https://www.tagetik.com/solutions/data-integration](https://www.tagetik.com/solutions/data-integration)
+| API | File |
+|---|---|
+| CCH Tagetik OData API | [openapi/cch-tagetik-odata-openapi.yml](openapi/cch-tagetik-odata-openapi.yml) |
 
+### JSON Schemas
 
-#### Tags:
+| Schema | File |
+|---|---|
+| Financial Record | [json-schema/cch-tagetik-financial-record-schema.json](json-schema/cch-tagetik-financial-record-schema.json) |
 
- - Data Integration, ETL, Import, Export
+### JSON Structures
 
-#### Properties
+| Structure | File |
+|---|---|
+| Financial Record | [json-structure/cch-tagetik-financial-record-structure.json](json-structure/cch-tagetik-financial-record-structure.json) |
 
-- [Documentation](https://docs.tagetik.com/api/data-integration)
-- [SDK](https://github.com/tagetik/sdk-data-integration)
+### JSON-LD Contexts
 
-### Tagetik Workflow API
-API for managing and automating financial close workflows, approvals, and task management
+| Context | File |
+|---|---|
+| CCH Tagetik | [json-ld/tagetik-context.jsonld](json-ld/tagetik-context.jsonld) |
 
-**Human URL:** [https://www.tagetik.com/solutions/workflow](https://www.tagetik.com/solutions/workflow)
+### Examples
 
+| Example | File |
+|---|---|
+| Query Financial Data | [examples/cch-tagetik-query-financial-data-example.json](examples/cch-tagetik-query-financial-data-example.json) |
 
-#### Tags:
+### Spectral Rules
 
- - Workflow, Automation, Financial Close, Approvals
+| Ruleset | File |
+|---|---|
+| CCH Tagetik OData Rules | [rules/cch-tagetik-odata-rules.yml](rules/cch-tagetik-odata-rules.yml) |
 
-#### Properties
+### Naftiko Capabilities
 
-- [Documentation](https://docs.tagetik.com/api/workflow)
-- [Examples](https://docs.tagetik.com/api/workflow/examples)
+#### Shared Definitions
 
-### Tagetik Reporting API
-API for generating and retrieving financial reports, dashboards, and analytics
+| API | File |
+|---|---|
+| CCH Tagetik OData | [capabilities/shared/cch-tagetik-odata.yaml](capabilities/shared/cch-tagetik-odata.yaml) |
 
-**Human URL:** [https://www.tagetik.com/solutions/reporting](https://www.tagetik.com/solutions/reporting)
+#### Workflow Capabilities
 
+| Workflow | Description | File |
+|---|---|---|
+| Financial Reporting | Query financial consolidation and analytical workspace data for close and reporting workflows | [capabilities/financial-reporting.yaml](capabilities/financial-reporting.yaml) |
 
-#### Tags:
+### Vocabulary
 
- - Reporting, Analytics, Dashboards, Financial Reports
+| Vocabulary | File |
+|---|---|
+| CCH Tagetik | [vocabulary/tagetik-vocabulary.yml](vocabulary/tagetik-vocabulary.yml) |
 
-#### Properties
+## Resources
 
-- [Documentation](https://docs.tagetik.com/api/reporting)
-- [Report Templates](https://docs.tagetik.com/api/reporting/templates)
-
-## Common Properties
-
-- [Portal](https://developer.tagetik.com)
-- [Authentication](https://docs.tagetik.com/authentication)
-- [Status](https://status.tagetik.com)
-- [Support](https://support.tagetik.com)
-- [Terms of Service](https://www.tagetik.com/legal/terms)
-- [Privacy Policy](https://www.tagetik.com/legal/privacy)
-- [Contact](https://www.tagetik.com/contact)
+- **Website:** https://www.wolterskluwer.com/en/solutions/cch-tagetik
+- **Documentation:** https://help.tagetik.com
+- **Technology Integrations:** https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations
+- **Support:** https://www.wolterskluwer.com/en/solutions/cch-tagetik/services/support
+- **Training:** https://www.academy.registration.tagetik.com
 
 ## Maintainers
 
-**FN:** Tagetik API Team
-
-**Email:** api-support@tagetik.com
+**FN:** Kin Lane  
+**Email:** kin@apievangelist.com
