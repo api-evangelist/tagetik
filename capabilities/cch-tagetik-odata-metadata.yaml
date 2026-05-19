@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: CCH Tagetik OData API — Metadata
+  description: 'CCH Tagetik OData API — Metadata. 1 operations. Lead operation: Get OData Metadata. Self-contained Naftiko
+    capability covering one Tagetik business surface.'
+  tags:
+  - Tagetik
+  - Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    TAGETIK_API_KEY: TAGETIK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cch-tagetik-odata-metadata
+    baseUri: https://{environment}
+    description: CCH Tagetik OData API — Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: $metadata
+      path: /$metadata
+      operations:
+      - name: getodatametadata
+        method: GET
+        description: Get OData Metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: database
+          in: query
+          type: string
+          description: The CCH Tagetik database code
+          required: true
+        - name: analyticalWorkspace
+          in: query
+          type: string
+          description: Optional analytical workspace code
+    authentication:
+      type: bearer
+      token: '{{env.TAGETIK_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cch-tagetik-odata-metadata-rest
+    port: 8080
+    description: REST adapter for CCH Tagetik OData API — Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/metadata
+      name: metadata
+      description: REST surface for $metadata.
+      operations:
+      - method: GET
+        name: getodatametadata
+        description: Get OData Metadata
+        call: cch-tagetik-odata-metadata.getodatametadata
+        with:
+          database: rest.database
+          analyticalWorkspace: rest.analyticalWorkspace
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cch-tagetik-odata-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for CCH Tagetik OData API — Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-odata-metadata
+      description: Get OData Metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cch-tagetik-odata-metadata.getodatametadata
+      with:
+        database: tools.database
+        analyticalWorkspace: tools.analyticalWorkspace
+      outputParameters:
+      - type: object
+        mapping: $.
