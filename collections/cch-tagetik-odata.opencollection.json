@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CCH Tagetik OData API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get OData Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{environment}/$metadata",
+            "params": [
+              {
+                "name": "database",
+                "value": "",
+                "type": "query",
+                "description": "The CCH Tagetik database code"
+              },
+              {
+                "name": "analyticalWorkspace",
+                "value": "",
+                "type": "query",
+                "description": "Optional analytical workspace code"
+              }
+            ]
+          },
+          "docs": "Returns the OData service metadata document describing all available entity sets, entity types, and their properties."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Financial Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query Financial Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{environment}/odata/:database/:entity",
+            "params": [
+              {
+                "name": "database",
+                "value": "",
+                "type": "path",
+                "description": "The CCH Tagetik database code"
+              },
+              {
+                "name": "entity",
+                "value": "",
+                "type": "path",
+                "description": "The entity set name (e.g., FinancialData, ConsolidationData, AnalyticalData)"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression (e.g., Year eq 2025 and Period eq 'Q1')"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip (for pagination)"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query",
+                "description": "Property name and direction for sorting (e.g., Year desc)"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query",
+                "description": "Include total count of matching records"
+              },
+              {
+                "name": "$format",
+                "value": "",
+                "type": "query",
+                "description": "Response format (default json)"
+              }
+            ]
+          },
+          "docs": "Query financial or analytical data from a CCH Tagetik entity set using OData v4 query options including $filter, $select, $top, $skip, $orderby, and $expand."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
