@@ -79,7 +79,7 @@ common:
     url: https://learn.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial
   - type: Training
     url: https://www.academy.registration.tagetik.com
-  - type: JSON Schema
+  - type: JSONSchema
     url: >-
       https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/json-schema/cch-tagetik-financial-record-schema.json
   - type: Vocabulary
