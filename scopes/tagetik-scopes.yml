@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cch-tagetik-odata-openapi.yml
+schemes:
+- name: OAuth2ClientCredentials
+  source: openapi/cch-tagetik-odata-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{environment}/oauth2/token
+scopes:
+- scope: read
+  description: Read access to financial and analytical data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/cch-tagetik-odata-openapi.yml

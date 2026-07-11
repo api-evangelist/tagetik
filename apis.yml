@@ -63,6 +63,10 @@ apis:
       - type: Documentation
         url: https://docs.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial
 common:
+  - type: Authentication
+    url: authentication/tagetik-authentication.yml
+  - type: OAuthScopes
+    url: scopes/tagetik-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/tagetik
   - type: Website
