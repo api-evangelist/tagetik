@@ -63,6 +63,8 @@ apis:
       - type: Documentation
         url: https://docs.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial
 common:
+  - type: DomainSecurity
+    url: security/tagetik-domain-security.yml
   - type: Authentication
     url: authentication/tagetik-authentication.yml
   - type: OAuthScopes

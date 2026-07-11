@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/cch-tagetik-odata-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: BasicAuth
+  type: http
+  scheme: basic
+  description: Basic authentication with CCH Tagetik username and password
+  sources:
+  - openapi/cch-tagetik-odata-openapi.yml
+- name: OAuth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{environment}/oauth2/token
+    scopes: 1
+  sources:
+  - openapi/cch-tagetik-odata-openapi.yml
