@@ -1,0 +1,16 @@
+{
+  "provider": "tagetik",
+  "sources": [
+    "tagetik-financial-data-api-openapi.yml",
+    "tagetik-metadata-api-openapi.yml"
+  ],
+  "outputs": [
+    "tagetik-financial-data-api-openapi.yml",
+    "tagetik-metadata-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
