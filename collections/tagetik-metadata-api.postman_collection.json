@@ -1,0 +1,278 @@
+{
+  "item": [
+    {
+      "id": "00479597-8154-4b00-a916-76e5bbe711e3",
+      "name": "Metadata",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d7bced3-e66c-4b16-93f7-a2a7d55a82eb",
+          "name": "Get OData Metadata",
+          "request": {
+            "name": "Get OData Metadata",
+            "description": {
+              "content": "Returns the OData service metadata document describing all available entity sets, entity types, and their properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "$metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "database",
+                  "value": "<string>",
+                  "description": "(Required) The CCH Tagetik database code"
+                },
+                {
+                  "disabled": false,
+                  "key": "analyticalWorkspace",
+                  "value": "<string>",
+                  "description": "Optional analytical workspace code"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your CCH Tagetik environment hostname",
+                  "type": "any",
+                  "value": "{{environment}}",
+                  "key": "environment"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bff42bc-73e8-4365-b602-67637386f899",
+              "name": "OData metadata XML document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "$metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyticalWorkspace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your CCH Tagetik environment hostname",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>(string)</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "4785a017-474c-40f6-ba3f-060804fc92f4",
+              "name": "Unauthorized - invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "$metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyticalWorkspace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your CCH Tagetik environment hostname",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4beffa5f-bea1-4f98-8227-2ac36fe06416",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "$metadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "database",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "analyticalWorkspace",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your CCH Tagetik environment hostname",
+                      "type": "any",
+                      "value": "{{environment}}",
+                      "key": "environment"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CCH Tagetik environment hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance.tagetik.com",
+      "key": "environment"
+    },
+    {
+      "type": "string",
+      "value": "https://{{environment}}/",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1bb9aebe-2b8f-4a2f-a600-5cbac398fd5f",
+    "name": "CCH Tagetik OData Financial Data Metadata API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OData v4 REST API providing read access to CCH Tagetik financial and analytical workspace data. Enables external tools such as Power BI, Qlik, and custom integrations to query financial models, consolidation data, and analytical workspace datasets. Supports Basic Authentication and OAuth 2.0 Client Credentials flow. The base URL is your CCH Tagetik environment-specific endpoint configured by your administrator.\n\nContact Support:\n Name: Wolters Kluwer CCH Tagetik Support",
+      "type": "text/plain"
+    }
+  }
+}

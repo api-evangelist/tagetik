@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CCH Tagetik OData Financial Data Metadata API",
+    "version": "4.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get OData Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{environment}/$metadata",
+            "params": [
+              {
+                "name": "database",
+                "value": "",
+                "type": "query",
+                "description": "The CCH Tagetik database code"
+              },
+              {
+                "name": "analyticalWorkspace",
+                "value": "",
+                "type": "query",
+                "description": "Optional analytical workspace code"
+              }
+            ]
+          },
+          "docs": "Returns the OData service metadata document describing all available entity sets, entity types, and their properties."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
