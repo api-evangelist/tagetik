@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: CCH Tagetik OData Financial Data Metadata API
+  title: CCH Tagetik OData Metadata API
   description: OData v4 REST API providing read access to CCH Tagetik financial and analytical workspace data. Enables external tools such as Power BI, Qlik, and custom integrations to query financial models, consolidation data, and analytical workspace datasets. Supports Basic Authentication and OAuth 2.0 Client Credentials flow. The base URL is your CCH Tagetik environment-specific endpoint configured by your administrator.
   version: 4.0.0
   contact:
