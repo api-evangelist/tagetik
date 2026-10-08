@@ -96,6 +96,12 @@ apis:
   - type: Power BI Connector
     url: https://learn.microsoft.com/en-us/power-query/connectors/wolters-kluwer-cch-tagetik
 common:
+  - type: Plans
+    url: plans/tagetik-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/tagetik-rate-limits.yml
+  - type: FinOps
+    url: finops/tagetik-finops.yml
   - url: https://www.wolterskluwer.com/en/news
     type: Blog
   - type: AgenticAccess
