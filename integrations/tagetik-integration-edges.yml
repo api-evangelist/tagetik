@@ -1,21 +1,4 @@
 edges:
-- partner_name: UK Open Banking
-  partner: null
-  type: contract
-  channel: regulator-register
-  relationship: standard-participant
-  direction: partner-built
-  evidence: https://www.openbanking.org.uk/regulated-providers/wolters-kluwer-uk-limited/
-  contract_reference:
-    register: UK Open Banking regulated providers (OBL directory)
-    spec_file: null
-    role: Third Party Providers
-    registered_name: Wolters Kluwer (UK) Limited
-    register_id: https://register.fca.org.uk/s/firm?id=0010X00004UAzU6QAL
-    matched_domain: wolterskluwer.com
-    api_families: null
-    detected_by: sweep-standard-registers.py
-    detected: '2026-10-12'
 - partner_name: Microsoft Azure Marketplace
   partner: microsoft-azure
   partner_match: aggregator
@@ -46,6 +29,23 @@ edges:
   seller_name: CCH Tagetik - EMEA-cch_tagetik_emea
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: UK Open Banking
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.openbanking.org.uk/regulated-providers/wolters-kluwer-uk-limited/
+  contract_reference:
+    register: UK Open Banking regulated providers (OBL directory)
+    spec_file: null
+    role: Third Party Providers
+    registered_name: Wolters Kluwer (UK) Limited
+    register_id: https://register.fca.org.uk/s/firm?id=0010X00004UAzU6QAL
+    matched_domain: wolterskluwer.com
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-14'
 generated: '2026-10-12'
 method: searched
 checked:
