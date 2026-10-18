@@ -57,6 +57,10 @@ apis:
   humanURL: https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations
   baseURL: https://{your-tagetik-environment}/scim/v2
   tags:
+  - Identity and Access Management
+  - SCIM
+  - User Provisioning
+  tags_raw:
   - Identity Management
   - SCIM
   - User Provisioning
