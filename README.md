@@ -1,4 +1,4 @@
-# CCH Tagetik (tagetik)
+# CCH Tagetik
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,89 +66,162 @@
 
 CCH Tagetik (a Wolters Kluwer solution) is a comprehensive Corporate Performance Management platform covering financial close and consolidation, extended planning and analysis, ESG and regulatory reporting, and corporate tax management. The platform exposes data via OData v4 REST APIs and SCIM, enabling integration with Power BI, Qlik, SAP HANA, and other BI tools. OAuth 2.0 and Basic Authentication are supported for secure access.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/apis.yml)
+**Areas:** Analytics · Budgeting · Corporate Performance Management · ESG · Financial Close · Financial Consolidation · Financial Planning · OData · Reporting
 
-## Scope
+## CCH Tagetik on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for CCH Tagetik is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/tagetik/](https://apis.io/providers/tagetik/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Analytics
-- Budgeting
-- Corporate Performance Management
-- ESG
-- Financial Close
-- Financial Consolidation
-- Financial Planning
-- OData
-- Reporting
+- [CCH Tagetik SCIM API](https://apis.io/apis/tagetik/cch-tagetik-scim-api/) — SCIM v2 (System for Cross-domain Identity Management) API for automated user provisioning and deprovisioning in CCH Tagetik. Supports synchronizing users…
+- [CCH Tagetik Financial Data API](https://apis.io/apis/tagetik/tagetik-financial-data-api/) — The Financial Data API from CCH Tagetik — 1 operation(s) for financial data.
+- [CCH Tagetik Metadata API](https://apis.io/apis/tagetik/tagetik-metadata-api/) — The Metadata API from CCH Tagetik — 1 operation(s) for metadata.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CCH Tagetik OData API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-OData v4 REST API providing read access to CCH Tagetik financial and analytical workspace data. Enables external tools such as Power BI, Qlik, and custom integrations to query financial models, consolidation data, and analytical workspace datasets. Supports Basic Authentication and OAuth 2.0 Client Credentials flow. Available from CCH Tagetik Service Pack 23 (version 5.3+).
+- [Tagetik Agentic Access](https://apis.io/agentic-access/tagetik/tagetik-agentic-access/)
 
-- **Human URL:** [https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations](https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations)
-- **Base URL:** `https://{your-tagetik-environment}/`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Financial Data
-- Integration
-- OData
-- REST
+- [Financial Record](https://apis.io/schemas/tagetik/cch-tagetik-financial-record/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://help.tagetik.com)
-- [Authentication](https://learn.microsoft.com/en-us/power-query/connectors/wolters-kluwer-cch-tagetik)
-- [Power  B I  Connector](https://learn.microsoft.com/en-us/power-query/connectors/wolters-kluwer-cch-tagetik)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/openapi/cch-tagetik-odata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/cch-tagetik-odata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cch-tagetik-odata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-### CCH Tagetik SCIM API
+- [Cch Tagetik Financial Record Structure](https://apis.io/json-structure/tagetik/cch-tagetik-financial-record-structure/)
 
-SCIM v2 (System for Cross-domain Identity Management) API for automated user provisioning and deprovisioning in CCH Tagetik. Supports synchronizing users and groups from Microsoft Entra ID (Azure AD) and other identity providers.
+#### JSON-LD (1)
 
-- **Human URL:** [https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations](https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations)
-- **Base URL:** `https://{your-tagetik-environment}/scim/v2`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Tagetik Context](https://apis.io/jsonld/tagetik/tagetik-context/)
 
-- Identity Management
-- SCIM
-- User Provisioning
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://docs.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial)
-- [Postman Collection](collections/cch-tagetik-odata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cch-tagetik-odata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [CCH Tagetik Vocabulary](https://apis.io/vocabularies/tagetik/tagetik-vocabulary/)
 
-## Common Properties
+#### Examples (1)
 
-- [LinkedIn](https://www.linkedin.com/company/tagetik)
+Example requests and responses.
+
+- [Cch Tagetik Query Financial Data Example](https://apis.io/examples/tagetik/cch-tagetik-query-financial-data-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [CCH Tagetik OData API](https://apis.io/collections/tagetik/open-cch-tagetik-odata/)
+- [CCH Tagetik OData Financial Data API](https://apis.io/collections/tagetik/open-tagetik-financial-data-api/)
+- [CCH Tagetik OData Financial Data Metadata API](https://apis.io/collections/tagetik/open-tagetik-metadata-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [CCH Tagetik — cch tagetik odata rules](https://apis.io/rules/tagetik/cch-tagetik-odata-rules/)
+- [CCH Tagetik — jsonschema rules](https://apis.io/rules/tagetik/tagetik-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Tagetik Authentication](https://apis.io/security/tagetik/tagetik-authentication/)
+- [Tagetik Domain Security](https://apis.io/security/tagetik/tagetik-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Tagetik Scopes](https://apis.io/scopes/tagetik/tagetik-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Tagetik Plans Pricing](https://apis.io/plans/tagetik/tagetik-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Tagetik Rate Limits](https://apis.io/rate-limits/tagetik/tagetik-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Tagetik Finops](https://apis.io/finops/tagetik/tagetik-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.wolterskluwer.com/en/solutions/cch-tagetik)
 - [Documentation](https://help.tagetik.com)
-- [Technology  Integrations](https://www.wolterskluwer.com/en/solutions/cch-tagetik/technology-integrations)
 - [Support](https://www.wolterskluwer.com/en/solutions/cch-tagetik/services/support)
-- [Power  B I  Integration](https://learn.microsoft.com/en-us/power-query/connectors/wolters-kluwer-cch-tagetik)
-- [Azure  A D  S S O  Tutorial](https://learn.microsoft.com/azure/active-directory/saas-apps/cch-tagetik-tutorial)
-- [Training](https://www.academy.registration.tagetik.com)
-- [J S O N  Schema](https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/json-schema/cch-tagetik-financial-record-schema.json)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/tagetik/refs/heads/main/vocabulary/tagetik-vocabulary.yml)
+- [Blog](https://www.wolterskluwer.com/en/news)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 33.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 55.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 7.9 |
+
+**Agent readiness 24.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/tagetik/](https://apis.io/providers/tagetik/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CCH Tagetik: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/tagetik/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
